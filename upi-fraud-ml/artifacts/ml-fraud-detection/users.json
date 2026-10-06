@@ -22,5 +22,11 @@
     "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
     "created_at": "2026-09-16T11:32:26.000915",
     "last_login": "2026-09-21T16:49:53.875794"
+  },
+  "abhijeet": {
+    "email": "abhijeetg134@gmail.com",
+    "password": "381fa94c49882e0a06845ff8aa9df705412448592bc9a4e637dc3dcd0e543968",
+    "created_at": "2026-10-06T22:34:44.690814",
+    "last_login": "2026-10-06T22:34:50.641817"
   }
 }

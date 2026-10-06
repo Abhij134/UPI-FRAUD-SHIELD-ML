@@ -38,6 +38,7 @@ CAT_COLS = [
 ]
 
 FEATURE_COLS = [
+    # Transaction
     "amount_log",
     "session_duration",
     "authentication_attempts",
@@ -47,21 +48,39 @@ FEATURE_COLS = [
     "merchant_category_code",
     "session_source",
     "time_between_link_click_and_transaction",
+    # Behavioural biometrics
+    "dns_lookup_age",
+    "input_timing_consistency",
+    "app_switching_frequency",
+    "keyboard_input_speed",
     "screen_active_time",
+    "geographic_location_vs_ip",
+    "background_data_usage",
+    # OTP & auth
     "time_between_otp_generation_and_input",
     "pin_entry_speed",
     "otp_request_frequency",
     "otp_request_device_consistency",
+    # Transaction history
     "transaction_velocity",
     "failed_transaction_count",
+    # Encoded categoricals
     "authorization_method",
     "transaction_type",
+    # Collect request
     "request_amount_roundness",
     "request_frequency",
     "request_acceptance_rate",
     "time_to_respond_to_request",
     "requester_account_age",
-    "relationship_to_requester"
+    "relationship_to_requester",
+    # UPI handle intelligence
+    "upi_handle_age",
+    "handle_similarity_score",
+    "handle_contains_official_terms",
+    "handle_transaction_history",
+    "business_name_match",
+    "social_media_presence",
 ]
 
 FEATURE_DESCRIPTIONS = {
@@ -74,7 +93,13 @@ FEATURE_DESCRIPTIONS = {
     "merchant_category_code":                  "Merchant category code (MCC) of the payee",
     "session_source":                          "How the session was initiated: app / web / sms-link",
     "time_between_link_click_and_transaction": "Seconds between payment-link click and transaction send",
+    "dns_lookup_age":                          "Age of payee DNS record in days (new domains = phishing risk)",
+    "input_timing_consistency":               "Consistency of user typing rhythm (0–1; bot-like = low)",
+    "app_switching_frequency":                 "Number of app-switches during session (screen-share indicator)",
+    "keyboard_input_speed":                    "Keyboard keystrokes per second during session",
     "screen_active_time":                      "Total screen-on time (seconds) during the session",
+    "geographic_location_vs_ip":               "GPS vs IP-geolocation mismatch score (0–1); VPN/proxy flag",
+    "background_data_usage":                   "MB consumed in background during session (malware indicator)",
     "time_between_otp_generation_and_input":   "Seconds between OTP dispatch and user entry",
     "pin_entry_speed":                         "PIN entry speed in keystrokes per second",
     "otp_request_frequency":                   "Number of OTP requests in the last 10 minutes",
@@ -89,6 +114,12 @@ FEATURE_DESCRIPTIONS = {
     "time_to_respond_to_request":              "Seconds taken by user to respond to a collect request",
     "requester_account_age":                   "Age (days) of the collect requester's UPI account",
     "relationship_to_requester":               "User's known relationship: known / unknown / business",
+    "upi_handle_age":                          "Age of payee UPI handle in days",
+    "handle_similarity_score":                 "Similarity to known official handles (0–1); impersonation risk",
+    "handle_contains_official_terms":          "1 if handle contains bank/gov/NPCI-like official terms",
+    "handle_transaction_history":              "Number of past transactions on this UPI handle",
+    "business_name_match":                     "Whether payee business name matches registered entity: match/mismatch/none",
+    "social_media_presence":                   "Payee social media verification status: verified/unverified/none",
 }
 
 

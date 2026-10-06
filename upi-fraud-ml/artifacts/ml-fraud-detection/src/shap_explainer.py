@@ -8,6 +8,7 @@ import matplotlib.patches as mpatches
 import io
 
 FEATURE_LABELS = {
+    # Transaction
     "amount_log":                             "Txn Amount (log ₹)",
     "session_duration":                        "Session Duration (s)",
     "authentication_attempts":                 "Auth Attempts",
@@ -17,21 +18,39 @@ FEATURE_LABELS = {
     "merchant_category_code":                  "Merchant Category (MCC)",
     "session_source":                          "Session Source",
     "time_between_link_click_and_transaction": "Link→Txn Time (s)",
+    # Behavioural biometrics (previously missing)
+    "dns_lookup_age":                          "DNS Age (days)",
+    "input_timing_consistency":               "Input Timing Consistency",
+    "app_switching_frequency":                 "App Switches",
+    "keyboard_input_speed":                    "Keyboard Speed (kps)",
     "screen_active_time":                      "Screen Active Time (s)",
+    "geographic_location_vs_ip":               "GPS vs IP Mismatch",
+    "background_data_usage":                   "Background Data (MB)",
+    # OTP & auth
     "time_between_otp_generation_and_input":   "OTP Delay (s)",
     "pin_entry_speed":                         "PIN Entry Speed",
     "otp_request_frequency":                   "OTP Request Frequency",
     "otp_request_device_consistency":          "OTP Device Consistent",
+    # Transaction history
     "transaction_velocity":                    "Txns Last 24h",
+    "failed_transaction_count":                "Failed Txns (7d)",
+    # Encoded categoricals
     "authorization_method":                    "Auth Method",
     "transaction_type":                        "Transaction Type",
+    # Collect request
     "request_amount_roundness":                "Amount Roundness",
     "request_frequency":                       "Request Frequency (7d)",
     "request_acceptance_rate":                 "Request Accept Rate",
     "time_to_respond_to_request":              "Response Time (s)",
     "requester_account_age":                   "Requester Account Age",
     "relationship_to_requester":               "Relationship to Requester",
-    "failed_transaction_count":                "Failed Txns (7d)",
+    # UPI Handle (previously missing)
+    "upi_handle_age":                          "UPI Handle Age (days)",
+    "handle_similarity_score":                 "Handle Similarity Score",
+    "handle_contains_official_terms":          "Official Terms in Handle",
+    "handle_transaction_history":              "Handle Txn History",
+    "business_name_match":                     "Business Name Match",
+    "social_media_presence":                   "Social Media Presence",
 }
 
 PRECAUTIONS = {
