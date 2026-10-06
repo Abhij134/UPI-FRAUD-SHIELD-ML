@@ -6,20 +6,19 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 import plotly.express as px
-from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
 
 from src.data_generator import (
-    load_dataset, get_train_test_data,
+    get_train_test_data,
     SESSION_SOURCES, AUTH_METHODS, TRANSACTION_TYPES,
     RELATIONSHIP_OPTIONS, BUSINESS_MATCH_OPTIONS, SOCIAL_OPTIONS,
 )
 from src.feature_engineering import (
-    get_X_y, get_scaler, FEATURE_COLS, FEATURE_DESCRIPTIONS, engineer_features,
+    get_scaler,
 )
 from src.models import MODEL_REGISTRY, train_model, predict_model, get_feature_importance
 from src.evaluator import compute_metrics, get_roc_curve
-from src.auth import login, register, get_user
+from src.auth import login, register
 from src.history import save_prediction, get_history, clear_history
 from src.shap_explainer import (
     get_shap_values, plot_shap_waterfall, get_precautions,
@@ -326,7 +325,11 @@ def show_auth():
 def show_dashboard():
     results, scaler, X_bg, feature_cols, label_encoders = load_pipeline()
 
-    n1, n2, n3 = st.columns([2.2, 5, 2.2])
+    # Header columns contain only header elements.
+    # IMPORTANT: do not create st.tabs() inside n2. If tab content then creates
+    # left/right columns and those create c1/c2 columns, Streamlit sees more
+    # than one level of column nesting and raises StreamlitAPIException.
+    n1, _, n3 = st.columns([2.2, 5, 2.2])
     with n1:
         st.markdown("""
         <div style='display:flex;align-items:center;gap:10px;padding-top:0.4rem;'>
@@ -336,8 +339,6 @@ def show_dashboard():
                 <div style='font-size:0.7rem;color:#475569;'>ML · Real-time · SHAP</div>
             </div>
         </div>""", unsafe_allow_html=True)
-    with n2:
-        tabs = st.tabs(["Predict Transaction", "My History", "Analytics", "Model Performance"])
     with n3:
         uname = st.session_state.username
         ud    = st.session_state.user_data
@@ -351,6 +352,10 @@ def show_dashboard():
             st.session_state.username  = None
             st.session_state.prediction_done = False
             st.rerun()
+
+    # Tabs must be top-level so the dashboard can safely use one nested
+    # columns level (left/right -> c1/c2) inside the Predict tab.
+    tabs = st.tabs(["Predict Transaction", "My History", "Analytics", "Model Performance"])
 
     st.markdown("<hr style='border-color:#1e2a3a;margin:0.5rem 0 1.2rem;'>", unsafe_allow_html=True)
 
@@ -395,7 +400,7 @@ def show_dashboard():
             st.markdown("<div class='input-section'>", unsafe_allow_html=True)
             st.markdown("<div class='input-section-title'>Behavioural Signals</div>", unsafe_allow_html=True)
             c1, c2 = st.columns(2)
-            pin_speed        = c2.number_input("PIN Entry Speed (kps)", min_value=0.0, max_value=5.0, value=1.2, step=0.1, key="pin_spd")
+            pin_speed        = c1.number_input("PIN Entry Speed (kps)", min_value=0.0, max_value=5.0, value=1.2, step=0.1, key="pin_spd")
             c1, c2 = st.columns(2)
             kbd_speed        = c1.number_input("Keyboard Speed (kps)", min_value=0.0, max_value=10.0, value=2.5, step=0.1, key="kbd_spd")
             app_switches     = c2.number_input("App Switches During Session", min_value=0, max_value=50, value=1, key="app_sw")

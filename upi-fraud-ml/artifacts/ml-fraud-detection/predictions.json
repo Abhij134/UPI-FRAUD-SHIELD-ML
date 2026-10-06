@@ -286,5 +286,21 @@
       "new_bene": true,
       "proxy": true
     }
+  ],
+  "aditya_pandit_24": [
+    {
+      "id": 1,
+      "timestamp": "16 Sep 2026, 11:47 AM",
+      "amount": "\u20b912,000",
+      "txn_type": "payment",
+      "hour": 14,
+      "session_source": "app",
+      "auth_method": "pin",
+      "model": "Random Forest",
+      "probability": 87.18,
+      "risk_label": "BLOCKED",
+      "txn_velocity": 3,
+      "failed_txns": 0
+    }
   ]
 }

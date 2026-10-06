@@ -215,7 +215,8 @@ git clone https://github.com/Sumit006-coder-dotcom/upi-fraud-ml.git
 ### Move into Project Directory
 
 ```bash
-cd upi-fraud-ml
+
+
 ```
 
 ### Install Dependencies
@@ -227,7 +228,10 @@ pip install -r requirements.txt
 ### Run Application
 
 ```bash
-python -m streamlit run artifacts\ml-fraud-detection\app.py```
+
+
+
+  ```
 
 ---
 
