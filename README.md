@@ -419,6 +419,14 @@ Models are evaluated on a **held-out 20% test set** (stratified split):
 
 ---
 
+## 🛠️ Recent Updates & Fixes
+
+- **36-Feature UI Restoration**: Fully restored the comprehensive 36-feature Streamlit interface (`paysim_app_full.py`) after experimental transitions to PaySim-only 12-feature datasets.
+- **Model Validation & Zero-Fraud Baseline**: Validated all 5 models against known safe transactions (resulting in ~0% fraud predictions) and updated default UI values to represent a perfectly clean, verified transaction. This fixes the "100% BLOCKED for ₹100" bug which was originally caused by default behavioral UI inputs perfectly matching fraudulent transaction profiles in the dataset.
+- **Dataset Integration**: Validated `np.log1p(amount)` transforms to ensure the frontend perfectly aligns with backend training, preventing arbitrary scaling mismatches during real-time inference.
+
+---
+
 ## 🔮 Future Enhancements
 
 - [ ] **Real-Time Banking API** — integrate NPCI/bank webhooks for live transaction streams
@@ -450,6 +458,14 @@ Key research questions addressed:
 ## 👨‍💻 Author
 
 **Abhijeet**  
+BCA (Hons. with Research)  
+Galgotias University
+
+**Aditya**  
+BCA (Hons. with Research)  
+Galgotias University
+
+**Suhani**  
 BCA (Hons. with Research)  
 Galgotias University
 
