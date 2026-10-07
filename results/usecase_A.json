@@ -1,0 +1,14 @@
+{
+  "p": "99.8%",
+  "band": "BLOCKED",
+  "shap_top8_RF": {
+    "amount_log": "0.188",
+    "request_amount_roundness": "0.142",
+    "time_between_link_click_and_transaction": "0.125",
+    "transaction_amount_vs_sender_history": "0.111",
+    "requester_account_age": "0.089",
+    "keyboard_input_speed": "0.045",
+    "dns_lookup_age": "0.033",
+    "time_between_otp_generation_and_input": "0.012"
+  }
+}

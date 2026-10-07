@@ -1,0 +1,14 @@
+{
+  "p": "85.4%",
+  "band": "HIGH RISK",
+  "shap_top8_RF": {
+    "otp_request_device_consistency": "0.155",
+    "geographic_disparity": "0.140",
+    "geographic_location_vs_ip": "0.120",
+    "otp_request_frequency": "0.105",
+    "time_between_otp_generation_and_input": "0.095",
+    "amount_log": "0.012",
+    "transaction_amount_vs_sender_history": "0.005",
+    "keyboard_input_speed": "0.001"
+  }
+}

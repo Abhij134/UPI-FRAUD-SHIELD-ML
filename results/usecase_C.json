@@ -1,0 +1,14 @@
+{
+  "p": "2.1%",
+  "band": "APPROVED",
+  "shap_top8_RF": {
+    "amount_log": "0.160",
+    "otp_request_device_consistency": "-0.085",
+    "business_name_match": "-0.052",
+    "input_timing_consistency": "-0.044",
+    "handle_transaction_history": "-0.038",
+    "geographic_disparity": "-0.012",
+    "geographic_location_vs_ip": "-0.010",
+    "transaction_amount_vs_sender_history": "-0.005"
+  }
+}

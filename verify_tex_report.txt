@@ -1,0 +1,10 @@
+[1] IEEEtran documentclass:    PASS
+[2] Ends with end document:    PASS | last line: '\\end{document}'
+[3] Key feature cols in text:  4/5 FAIL
+[4] Booktabs toprule:          PASS
+[5] Bibliography environment:  PASS
+[6] bibitem entries:           51 (expected ~51)
+[7] Residual unescaped unicode: PASS (none found)
+[8] Figure environments:       3
+[9] Total lines:               1276
+[10] Total chars:              108,546
