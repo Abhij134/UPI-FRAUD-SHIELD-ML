@@ -12,7 +12,7 @@
 
 **An end-to-end ML-powered web application that detects UPI transaction fraud in real time, explains *why* a transaction is flagged using SHAP, and compares 5 machine learning models side-by-side.**
 
-[**🚀 Try the Live Demo**](#-live-demo) · [**📖 Read the Report**](upi-fraud-ml/artifacts/ml-fraud-detection/docs/upi_fraud_detection_report.pdf) · [**⚡ Quick Start**](#-installation--quick-start)
+[**🚀 Try the Live Demo**](#-live-demo) · [**⚡ Quick Start**](#-installation--quick-start)
 
 </div>
 
